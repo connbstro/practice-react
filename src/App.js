@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 function App() {
+  // let name = "Connor";
+  const [name, setName] = useState("Connor");
+  // Array destructuring
+  const [age, setAge] = useState(23);
+
+  const handleClick = () => {
+    setName("Jesse");
+    setAge(26);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Navbar />
+      <div className="content">
+        <Home />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {name} is {age} years old
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={handleClick}>Click me</button>
+      </div>
     </div>
   );
 }
