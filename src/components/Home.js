@@ -1,27 +1,26 @@
 import { useState } from "react";
 import BlogList from "./BlogList";
 
-// Parent component
 const Home = () => {
   const [blogs, setBlogs] = useState([
-    { title: "Task Maker", body: "lorem ipsum...", author: "mario", id: 1 },
-    { title: "Code Quiz", body: "lorem ipsum...", author: "luigi", id: 2 },
+    { title: "Project 1", body: "lorem ipsum...", author: "mario", id: 1 },
+    { title: "Project 2", body: "lorem ipsum...", author: "yoshi", id: 2 },
     {
-      title: "Social Network",
+      title: "Project 3",
       body: "lorem ipsum...",
-      author: "bowser",
+      author: "mario",
       id: 3,
     },
   ]);
 
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
+    setBlogs(newBlogs);
+  };
+
   return (
     <div className="home">
-      {/* child component */}
-      <BlogList blogs={blogs} title="Projects" />
-      <BlogList
-        blogs={blogs.filter((blog) => blog.author === "mario")}
-        title="Skills by mario"
-      />
+      <BlogList blogs={blogs} title="Title" handleDelete={handleDelete} />
     </div>
   );
 };
