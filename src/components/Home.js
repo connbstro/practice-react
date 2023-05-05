@@ -1,23 +1,18 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 
+// Parent component
 const Home = () => {
-  // let name = "Connor";
-  const [name, setName] = useState("Connor");
-  // Array destructuring
-  const [age, setAge] = useState(23);
-
-  const handleClick = () => {
-    setName("Jesse");
-    setAge(26);
-  };
+  const [blogs, setBlogs] = useState([
+    { title: "new website", body: "lorem ipsum...", author: "mario", id: 1 },
+    { title: "Welcome party", body: "lorem ipsum...", author: "luigi", id: 2 },
+    { title: "Web dev", body: "lorem ipsum...", author: "bowswer", id: 3 },
+  ]);
 
   return (
     <div className="home">
-      <h2>Home</h2>
-      <p>
-        {name} is {age} years old
-      </p>
-      <button onClick={handleClick}>Click me</button>
+      {/* child component */}
+      <BlogList blogs={blogs} title= "title" />
     </div>
   );
 };
