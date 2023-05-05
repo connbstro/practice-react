@@ -9,7 +9,7 @@ const Home = () => {
     {
       title: "Social Network",
       body: "lorem ipsum...",
-      author: "bowswer",
+      author: "bowser",
       id: 3,
     },
   ]);
@@ -18,6 +18,10 @@ const Home = () => {
     <div className="home">
       {/* child component */}
       <BlogList blogs={blogs} title="Projects" />
+      <BlogList
+        blogs={blogs.filter((blog) => blog.author === "mario")}
+        title="Skills by mario"
+      />
     </div>
   );
 };
